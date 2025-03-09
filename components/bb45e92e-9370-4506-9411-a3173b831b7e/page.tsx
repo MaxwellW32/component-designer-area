@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import './page.css';
 
-export default function Nav1({ data }: { data: navBarsType }) {
+export default function Nav({ data }: { data: navBarsType }) {
     return (
         <nav {...data.mainElProps} className={`nav${data.styleId} ${data.mainElProps?.className}`}>
             <ul className={`navMenu${data.styleId}`}>
