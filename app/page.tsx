@@ -33,7 +33,26 @@ export default function Home() {
                     url: "/sub",
                     target: null,
                   },
-                  subMenu: [],
+                  subMenu: [
+                    {
+                      title: "home video 1",
+                      link: {
+                        title: null,
+                        url: "/sub sub 1",
+                        target: null,
+                      },
+                      subMenu: [],
+                    },
+                    {
+                      title: "home video 2",
+                      link: {
+                        title: null,
+                        url: "/sub sub 2",
+                        target: null,
+                      },
+                      subMenu: [],
+                    },
+                  ],
                 },
                 {
                   title: "home slider",
@@ -338,8 +357,8 @@ export default function Home() {
               priority: null,
               size: {
                 type: "noFill",
-                width: 20,
-                height: 20,
+                width: 10,
+                height: 10,
               },
               link: null
             }

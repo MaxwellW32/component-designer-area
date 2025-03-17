@@ -10,7 +10,7 @@ export default function Nav({ data }: { data: navBarsDataType }) {
 
     return (
         <>
-            <div className={`topContacts${data.styleId}`}>
+            <div className={`all${data.styleId} topContacts${data.styleId}`}>
                 <div className={`contactInfoCont${data.styleId}`}>
                     {data.contactInfo.map((eachContactInfo, eachContactInfoIndex) => {
                         return (
@@ -64,7 +64,7 @@ export default function Nav({ data }: { data: navBarsDataType }) {
 
 function DesktopNav({ data }: { data: navBarsDataType }) {
     return (
-        <nav {...data.mainElProps} className={`nav${data.styleId} desktopNav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
+        <nav {...data.mainElProps} className={`all${data.styleId} nav${data.styleId} desktopNav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
             <div className={`logosCont${data.styleId}`}>
                 {data.logos.map((eachLogo, eachLogoIndex) => {
                     return (
@@ -82,14 +82,12 @@ function DesktopNav({ data }: { data: navBarsDataType }) {
                 })}
             </div>
 
-            <div className={`menuCont${data.styleId}`}>
-                <RenderNavMenu data={data} menu={data.menu} />
-            </div>
+            <RenderNavMenu data={data} menu={data.menu} />
 
             {data.children !== null && (
-                <div>
-
-                </div>
+                <>
+                    {data.children}
+                </>
             )}
         </nav>
     )
@@ -97,38 +95,69 @@ function DesktopNav({ data }: { data: navBarsDataType }) {
 
 function MobileNav({ data }: { data: navBarsDataType }) {
     return (
-        <nav {...data.mainElProps} className={`nav${data.styleId} mobileNav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
+        <nav {...data.mainElProps} className={`all${data.styleId} nav${data.styleId} mobileNav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
             mobile
         </nav>
     )
 }
 
-function RenderNavMenu({ data, menu }: { data: navBarsDataType, menu: navBarsDataType["menu"] }) {
+function RenderNavMenu({ data, menu, isSubMenu }: { data: navBarsDataType, menu: navBarsDataType["menu"], isSubMenu?: boolean }) {
     return (
-        <ul className={`menu${data.styleId}`}>
+        <ul className={`${isSubMenu ? "subMenu" : "menu"}${data.styleId}`}>
             {menu.map((eachNavItem, eachNavItemIndex) => (
-                <RenderNavItem key={eachNavItemIndex} data={data} navItem={eachNavItem} />
+                <RenderNavMenuItem key={eachNavItemIndex} data={data} navItem={eachNavItem} />
             ))}
         </ul>
     )
 }
 
-function RenderNavItem({ data, navItem }: { data: navBarsDataType, navItem: navBarsDataType["menu"][number] }) {
+function RenderNavMenuItem({ data, navItem }: { data: navBarsDataType, navItem: navBarsDataType["menu"][number] }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <li className={`menuItem${data.styleId}`}>
-            <div className={`${data.styleId}`}>
-                <a href={navItem.link.url} className={`${data.styleId}`}>{navItem.title}</a>
-                {navItem.subMenu && navItem.subMenu.length > 0 && (
-                    <span>{isOpen ? "▲" : "▼"}</span>
+        <li className={`menuItem${data.styleId} ${isOpen ? `open${data.styleId}` : ``}`}
+            onMouseEnter={() => {
+                //if on desktop
+                if (window.innerWidth < 600) return
+
+                // setIsOpen(true)
+            }}
+            onMouseLeave={() => {
+                //if on desktop
+                if (window.innerWidth < 600) return
+
+                // setIsOpen(false)
+            }}
+        >
+            <div className={`menuLinkCont${data.styleId}`}>
+                <Link href={navItem.link.url} target={navItem.link.target !== null ? navItem.link.target : undefined} className={`${data.styleId}`}>
+                    {navItem.title}
+                </Link>
+
+                {navItem.subMenu && navItem.subMenu.length > 0 && data.supportingImages[0] !== undefined && (
+                    <div
+                        onClick={() => {
+                            // if (window.innerWidth > 600) return
+
+                            setIsOpen(prev => !prev)
+                        }}
+                    >
+                        <Image
+
+                            src={data.supportingImages[0].src}
+                            alt={data.supportingImages[0].alt}
+                            width={data.supportingImages[0].size.type === "noFill" ? data.supportingImages[0].size.width : undefined}
+                            height={data.supportingImages[0].size.type === "noFill" ? data.supportingImages[0].size.height : undefined}
+                            fill={data.supportingImages[0].size.type === "fill"}
+                            className={`chevron${data.styleId}`}
+                            style={{ rotate: isOpen ? "180deg" : "" }}
+                        />
+                    </div>
                 )}
             </div>
 
             {isOpen && navItem.subMenu.length > 0 && (
-                <div className={`subMenuCont${data.styleId}`}>
-                    <RenderNavMenu data={data} menu={navItem.subMenu} />
-                </div>
+                <RenderNavMenu data={data} menu={navItem.subMenu} isSubMenu={true} />
             )}
         </li>
     );
