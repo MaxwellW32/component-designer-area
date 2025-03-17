@@ -1,142 +1,202 @@
-// import Nav1 from "@/components/nav1/page";
-// import Nav2 from "@/components/nav2/page";
-// import Nav3 from "@/components/nav3/page";
-// import Nav4 from "@/components/nav4/page";
-// import Image from "next/image";
-
-import Nav from "@/components/bb45e92e-9370-4506-9411-a3173b831b7e/page";
+import Nav from "@/components/navbars/first nav/page";
 
 
 export default function Home() {
   return (
     <>
-      {/* <Nav1
-        data={{
-          "category": "navbars",
-          "mainElProps": {},
-          "styleId": "",
-          "menu": [
-            {
-              "label": "menu item 1",
-              "link": "/",
-              "subMenu": [
-                {
-                  "label": "sub menu item 1",
-                  "link": "/"
-                }
-              ]
-            },
-            {
-              "label": "menu item 2",
-              "link": "/"
-            }
-          ]
-        }}
-      /> */}
-
-      {/* <Nav2
-        data={{
-          "category": "navbars",
-          "mainElProps": {},
-          "styleId": "",
-          "menu": [
-            {
-              "label": "menu item 1",
-              "link": "/",
-              "subMenu": [
-                {
-                  "label": "sub menu item 1",
-                  "link": "/"
-                }
-              ]
-            },
-            {
-              "label": "menu item 2",
-              "link": "/"
-            }
-          ]
-        }}
-      /> */}
-
-      {/* <Nav3
-        data={{
-          "category": "navbars",
-          "mainElProps": {},
-          "styleId": "",
-          "menu": [
-            {
-              "label": "menu item 1",
-              "link": "/",
-              "subMenu": [
-                {
-                  "label": "sub menu item 1",
-                  "link": "/"
-                }
-              ]
-            },
-            {
-              "label": "menu item 2",
-              "link": "/"
-            }
-          ]
-        }}
-      /> */}
-
       <Nav
         data={{
           "category": "navbars",
           "mainElProps": {},
-          "styleId": "",
           "menu": [
             {
-              "label": "menu item 1",
-              "link": "/",
-              "subMenu": [
+              title: "home",
+              link: {
+                title: null,
+                url: "/",
+                target: null,
+              },
+              subMenu: [
                 {
-                  "label": "sub menu item 1",
-                  "link": "/"
+                  title: "sub home",
+                  link: {
+                    title: null,
+                    url: "/subHome",
+                    target: null,
+                  },
+                  subMenu: [],
                 }
               ]
             },
             {
-              "label": "menu item 2",
-              "link": "/"
+              title: "about",
+              link: {
+                title: null,
+                url: "about",
+                target: null,
+              },
+              subMenu: [],
             }
-          ]
+          ],
+          "styleId": "",
+          logos: [
+            {
+              src: "https://images.pexels.com/photos/4452510/pexels-photo-4452510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+              alt: "logo",
+              priority: true,
+              size: {
+                type: "noFill",
+                width: 300,
+                height: 300,
+              },
+              link: {
+                title: null,
+                url: "/",
+                target: null,
+              }
+            }
+          ],
+          children: undefined,
+          contactInfo: [
+            {
+              title: "example@hotmail.com",
+              image: {
+                src: "https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png",
+                alt: "email icon",
+                priority: null,
+                size: {
+                  type: "noFill",
+                  width: 13,
+                  height: 13,
+                },
+                link: null
+              },
+              link: null,
+            },
+            {
+              title: "Kurarpar, Dharnibari, Ulipur 5620",
+              image: {
+                src: "https://cdn-icons-png.flaticon.com/512/171/171322.png",
+                alt: "address icon",
+                priority: null,
+                size: {
+                  type: "noFill",
+                  width: 13,
+                  height: 13,
+                },
+                link: null
+              },
+              link: null,
+            },
+            {
+              title: "+123 (568) 584 86",
+              image: {
+                src: "https://static-00.iconduck.com/assets.00/call-icon-2047x2048-1v137evf.png",
+                alt: "phone icon",
+                priority: null,
+                size: {
+                  type: "noFill",
+                  width: 13,
+                  height: 13,
+                },
+                link: null
+              },
+              link: null,
+            },
+          ],
+          socialMedia: [
+            {
+              link: {
+                title: null,
+                url: "/facebook",
+                target: "_blank",
+              },
+              title: null,
+              image: {
+                src: "https://www.iconpacks.net/icons/1/free-facebook-icon-90-thumb.png",
+                alt: "facebook icon",
+                priority: null,
+                size: {
+                  type: "noFill",
+                  width: 13,
+                  height: 13,
+                },
+                link: null
+              },
+            },
+            {
+              link: {
+                title: null,
+                url: "/instagram",
+                target: "_blank",
+              },
+              title: null,
+              image: {
+                src: "https://img.icons8.com/?size=512&id=32320&format=png",
+                alt: "instagram icon",
+                priority: null,
+                size: {
+                  type: "noFill",
+                  width: 13,
+                  height: 13,
+                },
+                link: null
+              },
+            },
+            {
+              link: {
+                title: null,
+                url: "/pintrest",
+                target: "_blank",
+              },
+              title: null,
+              image: {
+                src: "https://cdn-icons-png.flaticon.com/512/1051/1051329.png",
+                alt: "pintrest icon",
+                priority: null,
+                size: {
+                  type: "noFill",
+                  width: 13,
+                  height: 13,
+                },
+                link: null
+              },
+            },
+            {
+              link: {
+                title: null,
+                url: "/linkedIn",
+                target: "_blank",
+              },
+              title: null,
+              image: {
+                src: "https://brandlogos.net/wp-content/uploads/2016/06/linkedin-logo.png",
+                alt: "linked in icon",
+                priority: null,
+                size: {
+                  type: "noFill",
+                  width: 13,
+                  height: 13,
+                },
+                link: null
+              },
+            },
+          ],
+          supportingImages: [
+            {
+              src: "https://cdn.creazilla.com/icons/3247124/chevron-thin-down-icon-lg.png",
+              alt: "chevron icon",
+              priority: null,
+              size: {
+                type: "noFill",
+                width: 20,
+                height: 20,
+              },
+              link: null
+            }
+          ],
         }}
       />
-
-      {/* <ContainTwo
-        data={{
-          category: "containers",
-          mainElProps: {},
-          styleId: "",
-          children: [],
-        }}
-      /> */}
-
-
-      {/* <Containers_84e25301_9ab5_45e8_8f4a_3d6cb26a4485
-        data={{
-          category: "containers",
-          mainElProps: {},
-          styleId: "",
-          children: (
-            <>
-              <Containers_84e25301_9ab5_45e8_8f4a_3d6cb26a4485
-                data={{
-                  category: "containers",
-                  mainElProps: {
-                    id: "1"
-                  },
-                  styleId: "",
-                  children: (<></>),
-                }}
-              />
-            </>
-          ),
-        }}
-      /> */}
     </>
   );
 }
