@@ -18,36 +18,183 @@ export default function Home() {
               },
               subMenu: [
                 {
-                  title: "sub home",
+                  title: "home image",
                   link: {
                     title: null,
-                    url: "/subHome",
+                    url: "/sub",
                     target: null,
                   },
                   subMenu: [],
-                }
+                },
+                {
+                  title: "home video",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "home slider",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "home dark",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
               ]
             },
             {
-              title: "about",
+              title: "about us",
               link: {
                 title: null,
                 url: "about",
                 target: null,
               },
               subMenu: [],
-            }
+            },
+            {
+              title: "services",
+              link: {
+                title: null,
+                url: "services",
+                target: null,
+              },
+              subMenu: [
+                {
+                  title: "services",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "services details",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+              ]
+            },
+            {
+              title: "pages",
+              link: {
+                title: null,
+                url: "#",
+                target: null,
+              },
+              subMenu: [
+                {
+                  title: "about us",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "services",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "service details",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "our pricing",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "team",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+              ]
+            },
+            {
+              title: "blog",
+              link: {
+                title: null,
+                url: "blog",
+                target: null,
+              },
+              subMenu: [
+                {
+                  title: "blog grid",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+                {
+                  title: "blog list",
+                  link: {
+                    title: null,
+                    url: "/sub",
+                    target: null,
+                  },
+                  subMenu: [],
+                },
+              ]
+            },
+            {
+              title: "contact",
+              link: {
+                title: null,
+                url: "contact",
+                target: null,
+              },
+              subMenu: [],
+            },
           ],
           "styleId": "",
           logos: [
             {
-              src: "https://images.pexels.com/photos/4452510/pexels-photo-4452510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+              src: "https://wp.dreamitworld.com/solio/wp-content/uploads/2025/01/solar-logo.png",
               alt: "logo",
               priority: true,
               size: {
                 type: "noFill",
-                width: 300,
-                height: 300,
+                width: 121,
+                height: 36,
               },
               link: {
                 title: null,
@@ -56,7 +203,9 @@ export default function Home() {
               }
             }
           ],
-          children: undefined,
+          children: (
+            <button>contact us</button>
+          ),
           contactInfo: [
             {
               title: "example@hotmail.com",

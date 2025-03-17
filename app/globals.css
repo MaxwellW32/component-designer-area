@@ -58,9 +58,44 @@
     object-fit: contain;
 }
 
-.nav {}
+.nav {
+    background-color: #163300;
+}
 
+.desktopNav {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
 
+.mobileNav {
+    display: none;
+}
+
+.logosCont {
+    background-color: #70af3a;
+}
+
+.logo {
+    object-fit: contain;
+}
+
+.menuCont {}
+
+.menu {}
+
+.subMenu {}
+
+/* mobile styles */
+@media only screen and (max-width: 600px) {
+    .desktopNav {
+        display: none;
+    }
+
+    .mobileNav {
+        display: grid;
+
+    }
+}
 
 
 

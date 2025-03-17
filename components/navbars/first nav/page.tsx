@@ -56,13 +56,83 @@ export default function Nav({ data }: { data: navBarsDataType }) {
                 </div>
             </div>
 
-            <nav {...data.mainElProps} className={`nav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
-                <div></div>
-            </nav>
+            <DesktopNav data={data} />
+            <MobileNav data={data} />
         </>
     );
 }
 
+function DesktopNav({ data }: { data: navBarsDataType }) {
+    return (
+        <nav {...data.mainElProps} className={`nav${data.styleId} desktopNav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
+            <div className={`logosCont${data.styleId}`}>
+                {data.logos.map((eachLogo, eachLogoIndex) => {
+                    return (
+                        <Image
+                            className={`logo${data.styleId}`}
+                            key={eachLogoIndex}
+                            src={eachLogo.src}
+                            alt={eachLogo.alt}
+                            width={eachLogo.size.type === "noFill" ? eachLogo.size.width : undefined}
+                            height={eachLogo.size.type === "noFill" ? eachLogo.size.height : undefined}
+                            fill={eachLogo.size.type === "fill" ? true : undefined}
+                            priority={eachLogo.priority !== null ? eachLogo.priority : undefined}
+                        />
+                    )
+                })}
+            </div>
+
+            <div className={`menuCont${data.styleId}`}>
+                <RenderNavMenu data={data} menu={data.menu} />
+            </div>
+
+            {data.children !== null && (
+                <div>
+
+                </div>
+            )}
+        </nav>
+    )
+}
+
+function MobileNav({ data }: { data: navBarsDataType }) {
+    return (
+        <nav {...data.mainElProps} className={`nav${data.styleId} mobileNav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
+            mobile
+        </nav>
+    )
+}
+
+function RenderNavMenu({ data, menu }: { data: navBarsDataType, menu: navBarsDataType["menu"] }) {
+    return (
+        <ul className={`menu${data.styleId}`}>
+            {menu.map((eachNavItem, eachNavItemIndex) => (
+                <RenderNavItem key={eachNavItemIndex} data={data} navItem={eachNavItem} />
+            ))}
+        </ul>
+    )
+}
+
+function RenderNavItem({ data, navItem }: { data: navBarsDataType, navItem: navBarsDataType["menu"][number] }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <li className={`menuItem${data.styleId}`}>
+            <div className={`${data.styleId}`}>
+                <a href={navItem.link.url} className={`${data.styleId}`}>{navItem.title}</a>
+                {navItem.subMenu && navItem.subMenu.length > 0 && (
+                    <span>{isOpen ? "▲" : "▼"}</span>
+                )}
+            </div>
+
+            {isOpen && navItem.subMenu.length > 0 && (
+                <div className={`subMenuCont${data.styleId}`}>
+                    <RenderNavMenu data={data} menu={navItem.subMenu} />
+                </div>
+            )}
+        </li>
+    );
+};
 
 // {/* <nav {...data.mainElProps} className={`nav${data.styleId} ${data.mainElProps?.className ?? ""}`}>
 // {/* Logo Section */}
