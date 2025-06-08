@@ -1,10 +1,9 @@
 import Nav from "@/components/navbars/first nav/page";
 
-
 export default function Home() {
   return (
     <>
-      <Nav
+      {/* <Nav
         data={{
           "category": "navbars",
           "mainElProps": {},
@@ -364,7 +363,7 @@ export default function Home() {
             }
           ],
         }}
-      />
+      /> */}
     </>
   );
 }
